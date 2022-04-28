@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 namespace BackendApi
 {
     public class Startup
@@ -33,7 +33,11 @@ namespace BackendApi
             services.AddScoped<IAreaRepository, AreaRepository>();
             services.AddScoped<IShopRepository, ShopRepository>();
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

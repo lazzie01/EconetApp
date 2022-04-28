@@ -14,15 +14,16 @@ namespace BackendApi.Models
             this.appDbContext = appDbContext;
         }
 
-        public async Task<IEnumerable<Shop>> Search(string name)
+        public async Task<IEnumerable<Shop>> Search(string area)
         {
-            IQueryable<Shop> query = appDbContext.Shops;
-
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(area))
             {
-                query = query.Where(e => e.Name.Contains(name));
+                var areaFound = appDbContext.Areas.Include(e => e.Shops)
+                    .FirstOrDefault(e => e.Name.Contains(area));
+
+                return areaFound.Shops.ToList();
             }
-            return await query.ToListAsync();
+            return null;
         }
     }
 }
