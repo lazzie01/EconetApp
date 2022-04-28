@@ -60,3 +60,4 @@ C:\Users\User PC\source\repos\BackendApi\BackendApi\obj\Debug\netcoreapp3.1\Back
 C:\Users\User PC\source\repos\BackendApi\BackendApi\obj\Debug\netcoreapp3.1\BackendApi.dll
 C:\Users\User PC\source\repos\BackendApi\BackendApi\obj\Debug\netcoreapp3.1\BackendApi.pdb
 C:\Users\User PC\source\repos\BackendApi\BackendApi\obj\Debug\netcoreapp3.1\BackendApi.genruntimeconfig.cache
+C:\Users\User PC\source\repos\BackendApi\BackendApi\obj\Debug\netcoreapp3.1\BackendApi.csproj.AssemblyReference.cache
