@@ -22,5 +22,17 @@ namespace BackendApi.Models
             await appDbContext.SaveChangesAsync();
             return result.Entity;
         }
+
+        public async Task<Shop> GetShopByName(string name)
+        {
+            return await appDbContext.Shops.FirstOrDefaultAsync(e => e.Name == name);
+        }
+
+        public async Task<Shop> GetShop(int shopId)
+        {
+            return await appDbContext.Shops
+                                     .Include(e => e.Area)
+                                     .FirstOrDefaultAsync(e => e.Id == shopId);
+        }
     }
 }
